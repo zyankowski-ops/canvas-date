@@ -1,49 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-
-<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Balsamiq Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
-  text-align: center;
-}
-
-#date {
-  width: 100%;
-}
-</style>
-</head>
-
-<body>
-
-<div id="date"></div>
-
 <script>
 const today = new Date();
 
-document.getElementById("date").textContent =
-  today.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric"
-  });
-</script>
+const weekday = today.toLocaleDateString("en-US", {
+  weekday: "long"
+}).toUpperCase();
 
-</body>
-</html>
+const date = today.toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric"
+});
+
+document.getElementById("date").textContent =
+  weekday + "  •  " + date;
+</script>
